@@ -54,7 +54,6 @@ class DA(object):
         type = ['*jpeg', '*.png', '*bmp']
         t = 0
         while fpaths == []:
-            print(osp.join(images_dir, path, type[t]))
             fpaths = sorted(glob(osp.join(images_dir, path, type[t])))
             t += 1
         for fpath in fpaths:
