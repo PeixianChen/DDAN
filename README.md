@@ -1,7 +1,7 @@
 # Dual Distribution Alignment Network for Generalizable Person Re-Identification
 
 This resposity is the official implementation of our AAAI2021 [Paper](https://arxiv.org/abs/2007.13249). 
-![hustlin_erd][./network.pdf]
+![avatar][./network.png]
 
 #### Dependent
 * Python 3.7.5
