@@ -197,26 +197,33 @@ class Evaluator(object):
         all_mAP, all_CMC, all_CMC5, all_CMC10 = [], [], [], []
         
         for j in range(self.num_folds):
+            if j % 2 == 0:
+                selected_pids = rs.choice(q_num_unique_pids, num_tests, replace=False) + 1
+            else:
+                new_selected_pids = [i for i in range(1, q_num_unique_pids+1) if i not in selected_pids]
+                selected_pids = new_selected_pids
+            gallery_idx, query_idx = [], []
+            for pid in selected_pids:
+                q_idx = q_pid_to_idx[pid][0]
+                query_idx.append(q_idx)
+            for pid in selected_pids:
+                g_idx = g_pid_to_idx[pid][0]
+                gallery_idx.append(g_idx)
             # 随机选取 num_tests 个样本测试
             selected_pids = rs.choice(q_num_unique_pids, num_tests, replace=False) + 1
             #selected_pids = sorted(selected_pids)
 
-            # 划分 gallery 和 query，即每个 pid 选 2 个样本
-            if j % 2 ==0:
-                gallery_idx, query_idx = [], []
-                for pid in selected_pids:
-                    q_idx = q_pid_to_idx[pid][0]
-                    query_idx.append(q_idx)
-                for pid in selected_pids:
-                    g_idx = g_pid_to_idx[pid][0]
-                    gallery_idx.append(g_idx)
-            else:
-                t = gallery_idx
-                gallery_idx=query_idx
-                query_idx = gallery_idx
-
-            #print(selected_pids)
-
+            # # 划分 gallery 和 query，即每个 pid 选 2 个样本
+            # if j % 2 ==0:
+            #     gallery_idx, query_idx = [], []
+            #     for pid in selected_pids:
+            #         q_idx = q_pid_to_idx[pid][0]
+            #         query_idx.append(q_idx)
+            #     for pid in selected_pids:
+            #         g_idx = g_pid_to_idx[pid][0]
+            #         gallery_idx.append(g_idx)
+            # else:
+            #     gallery_idx, query_idx = query_idx, gallery_idx
 
             def get(x, idx):
                 return [x[i] for i in idx]
