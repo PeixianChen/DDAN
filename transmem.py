@@ -156,9 +156,9 @@ def main(args):
     evaluator = Evaluator(model)
     if args.evaluate:
         # -----------------------------
-        v = evaluator.eval_viper(viper_query_loader, viper_gallery_loader, test_dataset.viper_query, test_dataset.viper_gallery, args.output_feature, seed=97)
+        v = evaluator.eval_viper(viper_query_loader, viper_gallery_loader, test_dataset.viper_query, test_dataset.viper_gallery, args.output_feature, seed=57)
         p = evaluator.eval_prid(prid_query_loader, prid_gallery_loader, test_dataset.prid_query, test_dataset.prid_gallery, args.output_feature, seed=40)
-        g = evaluator.eval_grid(grid_query_loader, grid_gallery_loader, test_dataset.grid_query, test_dataset.grid_gallery, args.output_feature, seed=28)
+        g = evaluator.eval_grid(grid_query_loader, grid_gallery_loader, test_dataset.grid_query, test_dataset.grid_gallery, args.output_feature, seed=35)
         l = evaluator.eval_ilids(ilid_query_loader, test_dataset.ilid_query, args.output_feature, seed=24)
         # -----------------------------
 
