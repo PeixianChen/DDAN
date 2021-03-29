@@ -14,6 +14,8 @@ Other datasets are available from the original author's open source website.
 ```
 bash run.sh
 ```
+#### Model
+Download the [DDAN model]().
 
 #### Citations
 If our paper helps your research, please cite it in your publications:
