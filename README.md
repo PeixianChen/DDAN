@@ -15,7 +15,7 @@ Other datasets are available from the original author's open source website.
 bash run.sh
 ```
 #### Model
-[Download]() the DDAN model.
+[Download](https://drive.google.com/file/d/1ece571WcZ3ietIfDqA31yZ1loe0GfBka/view?usp=sharing) the DDAN model.
 
 #### Citations
 If our paper helps your research, please cite it in your publications:
